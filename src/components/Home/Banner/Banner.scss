@@ -63,14 +63,14 @@
             }
 
             h1 {
-                font-size: 80px;
+                font-size: 70px;
                 font-weight: 700;
                 line-height: 1;
                 color: white;
                 margin-bottom: 20px;
 
                 @include md {
-                    font-size: 85px;
+                    font-size: 70px;
                     margin-left: -100px;
                 }
             }
