@@ -1,5 +1,4 @@
 import {BrowserRouter, Routes, Route} from "react-router-dom";
-import {Analytics} from '@vercel/analytics/react';
 import "./App.scss";
 
 import Header from "./components/Header/Header";
@@ -12,28 +11,26 @@ import AppContext from "./utils/context";
 import AllCategories from "./components/Allcategory/AllCategories";
 import About from "./components/About/About";
 import Allproducts from "./components/Allproducts/Allproducts";
-import Success from "./components/Success/Success";
-import Failed from "./components/Failed/Failed";
+import Success from "./components/Success/Success"; // Import Success component
+import Failed from "./components/Failed/Failed"; // Import Failed component
 
 function App() {
     return (
         <BrowserRouter>
             <AppContext>
-                <Analytics>
-                    <Header />
-                    <Routes>
-                        <Route path="/" element={<Home />} />
-                        <Route path="/category/:id" element={<Category />} />
-                        <Route path="/product/:id" element={<SingleProduct />} />
-                        <Route path="/categories" element={<AllCategories />} />
-                        <Route path="/about" element={<About />} />
-                        <Route path="/products" element={<Allproducts />} />
-                        <Route path="/success" element={<Success />} />
-                        <Route path="/failed" element={<Failed />} />
-                    </Routes>
-                    <Newsletter />
-                    <Footer />
-                </Analytics>
+                <Header />
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/category/:id" element={<Category />} />
+                    <Route path="/product/:id" element={<SingleProduct />} />
+                    <Route path="/categories" element={<AllCategories />} />
+                    <Route path="/about" element={<About />} />
+                    <Route path="/products" element={<Allproducts />} />
+                    <Route path="/success" element={<Success />} /> {/* Add Success route */}
+                    <Route path="/failed" element={<Failed />} /> {/* Add Failed route */}
+                </Routes>
+                <Newsletter />
+                <Footer />
             </AppContext>
         </BrowserRouter>
     );
