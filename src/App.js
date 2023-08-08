@@ -1,6 +1,5 @@
-import React from "react";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
-import {AnalyticsProvider} from '@vercel/analytics/react';
+import {Analytics} from '@vercel/analytics/react';
 import "./App.scss";
 
 import Header from "./components/Header/Header";
@@ -20,7 +19,7 @@ function App() {
     return (
         <BrowserRouter>
             <AppContext>
-                <AnalyticsProvider>
+                <Analytics>
                     <Header />
                     <Routes>
                         <Route path="/" element={<Home />} />
@@ -34,7 +33,7 @@ function App() {
                     </Routes>
                     <Newsletter />
                     <Footer />
-                </AnalyticsProvider>
+                </Analytics>
             </AppContext>
         </BrowserRouter>
     );
