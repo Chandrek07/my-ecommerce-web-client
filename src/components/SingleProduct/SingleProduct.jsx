@@ -37,7 +37,7 @@ const SingleProduct = () => {
                 <div className="single-product-page">
                     <div className="left">
                         <img
-                            src={process.env.REACT_APP_STRIPE_APP_DEV_URL + imageUrl}
+                            src={imageUrl}
                             alt={product?.title || ""}
                         />
                     </div>
