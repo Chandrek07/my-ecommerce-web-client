@@ -6,12 +6,13 @@ import "./Header.scss";
 import Search from "./Search/Search";
 import {Context} from "../../utils/context";
 import Cart from "../Cart/Cart";
-
-
+import React from "react";
+import {useAuth0} from "@auth0/auth0-react";
 
 const Header = () => {
     const [scrolled, setScrolled] = useState(false);
     const [searchModal, setSearchModal] = useState(false);
+    const {loginWithRedirect, isAuthenticated, logout} = useAuth0();
     const navigate = useNavigate();
     const handleScroll = () => {
         const offset = window.scrollY;
@@ -39,10 +40,23 @@ const Header = () => {
                         <li onClick={() => navigate("/about")}>About</li>
                         <li onClick={() => navigate("/categories")}>Categories</li>
                         <li onClick={() => navigate("/products")}>Products</li>
-
                     </ul>
                     <div className="center" onClick={() => navigate("/")}>
                         SONIC{" "}SENSATIONS
+                    </div>
+                    <div className="Login">
+
+                        {
+
+                            isAuthenticated ? (
+                                <li><button onClick={() => logout({logoutParams: {returnTo: window.location.origin}})}>
+                                    Log Out
+                                </button></li>
+                            ) : (
+                                <li><button onClick={() => loginWithRedirect()}>Log In</button></li>
+
+                            )
+                        }
                     </div>
                     <div className="right">
                         <TbSearch onClick={() => setSearchModal(true)} />
@@ -58,6 +72,7 @@ const Header = () => {
             </header>
             {searchModal && <Search setSearchModal={setSearchModal} />}
             {showCart && <Cart />}
+
         </>
     );
 };

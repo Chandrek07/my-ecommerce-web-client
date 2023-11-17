@@ -60,6 +60,34 @@
         }
     }
 
+    .username {
+        li {
+            list-style-type: none;
+        }
+    }
+
+    .Login {
+        margin-left: inherit;
+        margin-right: 27px;
+
+        button {
+            text-transform: uppercase;
+            font-size: 13px;
+            font-weight: 500;
+            width: -moz-fit-content;
+            width: fit-content;
+            border: 2px solid white;
+            padding: 10px 20px;
+            transition: all ease 0.3s;
+            background-color: #8e2de2;
+            cursor: pointer;
+        }
+
+        li {
+            list-style-type: none;
+        }
+    }
+
     .right {
         display: flex;
         align-items: center;
